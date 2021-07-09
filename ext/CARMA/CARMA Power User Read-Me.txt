@@ -1,0 +1,150 @@
+#BEGIN#
+
+CARMA v3.0 Power User Read-Me File
+
+Last updated: November 28, 2012
+
+#----------
+
+Before using data in any analysis or publication, be sure to consult the following.
+
+CARMA working paper describing the methodology (PDF included in .zip package):
+
+http://www.cgdev.org/content/publications/detail/1426429/
+
+Technical Notes blogs:
+
+http://carma.org/blog/
+
+Ongoing "Known Issues" blog post:
+
+http://carma.org/blog/carma-v3-0-known-issues-ongoing-updates/
+
+#----------
+
+Three files are included in CARMAv30_PowerUser.zip package: Plant.csv, Company.csv, and Region.csv
+Files consists of comma separated values (.csv)
+All text strings are quoted
+Text uses UTF-8 encoding (may not always display unusual characters properly in Excel)
+Missing data are stored as ""
+_future, _past, and _present variable suffixes refer to Future, 2004, and 2009, respectively, in CARMA v3.0
+
+#----------
+
+VARIABLE DESCRIPTIONS
+
+#----------
+
+Plant.csv
+
+plant.id: unique internal plant identifier (numeric)
+carbon_future: annual metric tons of carbon dioxide (CO2) emitted, excluding biogenic CO2 emissions from biofuels (numeric)
+carbon_past: annual metric tons of carbon dioxide (CO2) emitted, excluding biogenic CO2 emissions from biofuels (numeric)
+carbon_present: annual metric tons of carbon dioxide (CO2) emitted, excluding biogenic CO2 emissions from biofuels (numeric)
+energy_future: annual net megawatt hours (MWh) generated (numeric)
+energy_past: annual net megawatt hours (MWh) generated (numeric)
+energy_present: annual net megawatt hours (MWh) generated (numeric)
+intensity_future: annual average carbon intensity measured in kg CO2 per net MWh (numeric)
+intensity_past: annual average carbon intensity measured in kg CO2 per net MWh (numeric)
+intensity_present: annual average carbon intensity measured in kg CO2 per net MWh (numeric)
+plant: unique name of the power plant/station (character)
+company: name of the ultimate corporate owner entity or, if unavailable, the corporate operating entity (character)
+city: name of city associated with plant
+region: name of state/province (GeoNames region1 hierarchy) associated with plant (character)
+county: name of county/district (GeoNames region2 hierarchy) associated with plant (character)
+country: name of country associated with plant (character)
+iso3: ISO 3166-1 alpha-3 country code (character)
+continent: name of continent associated with plant (character)
+latitude: latitudinal coordinate (see 'crd' variable), WGS84 (numeric)
+longitude: longitudinal coordinate (see 'crd' variable), WGS84 (numeric)
+zip: postal code associated with plant (character)
+congdist: U.S. congressional district number associated with plant (numeric)
+metroarea: U.S. combined statistical area (CSA) associated with plant (character)
+s1name: name of first U.S. Senator (character)
+s1party: party of first U.S. Senator (character)
+s1addr: Washington DC mailing address of first U.S. Senator (character)
+s1tel1: Washington DC telephone number of first U.S. Senator (character)
+s1tel2: local telephone number of first U.S. Senator (character)
+s1email: link to online contact form for first U.S. Senator (character)
+s2name: name of second U.S. Senator (character)
+s2party: party of second U.S. Senator (character)
+s2addr: Washington DC mailing address of second U.S. Senator (character)
+s2tel1: Washington DC telephone number of second U.S. Senator (character)
+s2tel2: local telephone number of second U.S. Senator (character)
+s2email: link to online contact form for second U.S. Senator (character)
+congname: name of associated U.S. Congressperson (character)
+congparty: party of U.S. Congressperson (character)
+congaddr: Washington DC mailing address of U.S. Congressperson (character)
+congtel1: Washington DC telephone number of U.S. Congressperson (character)
+congtel2: local telephone number of U.S. Congressperson (character)
+congemail: link to online contact form for U.S. Congressperson (character)
+dis: indicates status of present plant-level disclosure; 0 = no data disclosed, 1 = MWh generated disclosed, 2 = CO2 emissions disclosed, 3 = both MWh and CO2 disclosed (numeric)
+crd: indicates status of latitude/longitude coordinates; 0 = no coordinates available, 1 = approximate (city center) coordinates, 2 = precise facility coordinates (numeric)
+
+#----------
+
+Company.csv
+
+company_id: unique internal company identifier (numeric)
+plantcount: number of operational plants in the present period, blank if none (numeric)
+carbon_future: annual metric tons of carbon dioxide (CO2) emitted, excluding biogenic CO2 emissions from biofuels (numeric)
+carbon_past: annual metric tons of carbon dioxide (CO2) emitted, excluding biogenic CO2 emissions from biofuels (numeric)
+carbon_present: annual metric tons of carbon dioxide (CO2) emitted, excluding biogenic CO2 emissions from biofuels (numeric)
+energy_future: annual net megawatt hours (MWh) generated (numeric)
+energy_past: annual net megawatt hours (MWh) generated (numeric)
+energy_present: annual net megawatt hours (MWh) generated (numeric)
+intensity_future: annual average carbon intensity measured in kg CO2 per net MWh (numeric)
+intensity_past: annual average carbon intensity measured in kg CO2 per net MWh (numeric)
+intensity_present: annual average carbon intensity measured in kg CO2 per net MWh (numeric)
+share_fos_future: share of net generation attributable to plants with fossil fuel as primary energy source (numeric)
+share_fos_past: share of net generation attributable to plants with fossil fuel as primary energy source (numeric)
+share_fos_present: share of net generation attributable to plants with fossil fuel as primary energy source (numeric)
+share_hyd_future: share of net generation attributable to plants with hydroelectricity as primary energy source (numeric)
+share_hyd_past: share of net generation attributable to plants with hydroelectricity as primary energy source (numeric)
+share_hyd_present: share of net generation attributable to plants with hydroelectricity as primary energy source (numeric)
+share_nuc_future: share of net generation attributable to plants with nuclear energy as primary energy source (numeric)
+share_nuc_past: share of net generation attributable to plants with nuclear energy as primary energy source (numeric)
+share_nuc_present: share of net generation attributable to plants with nuclear energy as primary energy source (numeric)
+share_ren_future: share of net generation attributable to plants with non-hydro renewable energy as primary energy source (numeric)
+share_ren_past: share of net generation attributable to plants with non-hydro renewable energy as primary energy source (numeric)
+share_ren_present: share of net generation attributable to plants with non-hydro renewable energy as primary energy source (numeric)
+company_name: name of the ultimate corporate owner entity or, if unavailable, the corporate operating entity; can be linked with 'company' in Plant.csv (character)
+country: name of country where plurality of company's generating capacity is located; may differ from corporate headquarter country (character)
+iso3: ISO 3166-1 alpha-3 country code (character)
+symbol: deprecated variable
+link: deprecated variable
+
+
+#----------
+
+Region.csv
+
+region_id: unique internal geographic entity identifier; same as GeoNames internal ID (numeric)
+plantcount: number of operational plants in the present period, blank if none (numeric)
+carbon_future: annual metric tons of carbon dioxide (CO2) emitted, excluding biogenic CO2 emissions from biofuels (numeric)
+carbon_past: annual metric tons of carbon dioxide (CO2) emitted, excluding biogenic CO2 emissions from biofuels (numeric)
+carbon_present: annual metric tons of carbon dioxide (CO2) emitted, excluding biogenic CO2 emissions from biofuels (numeric)
+energy_future: annual net megawatt hours (MWh) generated (numeric)
+energy_past: annual net megawatt hours (MWh) generated (numeric)
+energy_present: annual net megawatt hours (MWh) generated (numeric)
+intensity_future: annual average carbon intensity measured in kg CO2 per net MWh (numeric)
+intensity_past: annual average carbon intensity measured in kg CO2 per net MWh (numeric)
+intensity_present: annual average carbon intensity measured in kg CO2 per net MWh (numeric)
+share_fos_future: share of net generation attributable to plants with fossil fuel as primary energy source (numeric)
+share_fos_past: share of net generation attributable to plants with fossil fuel as primary energy source (numeric)
+share_fos_present: share of net generation attributable to plants with fossil fuel as primary energy source (numeric)
+share_hyd_future: share of net generation attributable to plants with hydroelectricity as primary energy source (numeric)
+share_hyd_past: share of net generation attributable to plants with hydroelectricity as primary energy source (numeric)
+share_hyd_present: share of net generation attributable to plants with hydroelectricity as primary energy source (numeric)
+share_nuc_future: share of net generation attributable to plants with nuclear energy as primary energy source (numeric)
+share_nuc_past: share of net generation attributable to plants with nuclear energy as primary energy source (numeric)
+share_nuc_present: share of net generation attributable to plants with nuclear energy as primary energy source (numeric)
+share_ren_future: share of net generation attributable to plants with non-hydro renewable energy as primary energy source (numeric)
+share_ren_past: share of net generation attributable to plants with non-hydro renewable energy as primary energy source (numeric)
+share_ren_present: share of net generation attributable to plants with non-hydro renewable energy as primary energy source (numeric)
+region_name: name of geographic entity as given by GeoNames; can be linked with geographic fields in Plant.csv (character)
+region_type: denotes 'city', 'province' (GeoNames region1 hierarchy), 'county' (U.S. only), 'metro area' (U.S. only), 'congressperson' (U.S. only), 'country', or 'continent' (character)
+province_country: when region_type='city' or region_type='province', denotes the associated country (character)
+county_state: when region_type='city', region_type='county', or region_type='congressperson', denotes the associated state/province (GeoNames region1 hierarchy) (character)
+
+#END#

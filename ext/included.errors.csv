@@ -1,0 +1,7 @@
+name,mean,s.d.,percent,RMSE
+R_part,NA,NA,NA,0.06
+R_PBL,NA,NA,NA,0.2
+R_wind,NA,NA,NA,1.02
+R_inst,NA,NA,NA,0.23
+R_bkgd,NA,NA,NA,0.23
+R_bio,NA,NA,NA,1.04
