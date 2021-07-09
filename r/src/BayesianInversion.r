@@ -1,3 +1,53 @@
+if(F) {
+  site <- 'Los Angeles'
+  workdir <- '~/Sectoral_Analysis'
+  included.errors <- 'ext/included.errors.csv'
+  footprint.dirs <- "/uufs/chpc.utah.edu/common/home/lin-group11/XCO2_Climatology/ODIAC/out_LosAngeles_2020022419_hrrr_OCO-3"
+  odiac.path <- '/uufs/chpc.utah.edu/common/home/lin-group11/Roten_InputData/ODIAC/ODIAC2020/2019'
+  vulcan.path <- '/uufs/chpc.utah.edu/common/home/lin-group11/Roten_InputData/Vulcan3.0/hourly'
+  is.annual <- FALSE
+  vulcan.sector.path <- 'ext/defined_vulcan_sectors.csv'
+  edgar.path <- '/uufs/chpc.utah.edu/common/home/lin-group11/Roten_InputData/EDGARv5/2018'
+  edgar.downscaling <- 'ext/EDGAR_TemporalProfiles'
+  carma.path <- 'ext/CARMA/Plant.csv'
+  smurf.path <- '/uufs/chpc.utah.edu/common/home/lin-group11/Roten_InputData/SMUrF'
+  use.year <- 2019
+  output.directory <- '/uufs/chpc.utah.edu/common/home/lin-group11/Bayesian_Inversion'
+  emissions.category <- NA
+  edgar.sector.path <- 'ext/defined_edgar_sectors.csv'
+  xmin <- -118.6878
+  xmax <- -117.0617
+  ymin <- 33.58086
+  ymax <- 34.34599
+  prior.emissions <- 'prior_emiss.nc'
+  truth.emissions <- 'truth_emiss.nc'
+  prior.lonlat <- 'lonlat_domain.rds'
+  background.emissions <- 'outer_emiss.nc'
+  background.lonlat <- 'lonlat_outer.rds'
+  bio.emissions <- 'bio_flux.nc'
+  prior.uncertainty <- 'prior_uncert.nc'
+  observation.values <- 'obs.rds'
+  background.values <- 'background.rds'
+  lon_res = 1/120; lat_res = 1/120 #can probably remove later
+  ls = 1; lt = 1; obs.error <- 1
+  flux_units = "umol/(m2 s)" #km, #days
+  
+  setwd(workdir); source('r/dependencies.r')
+  
+  tmp.file <- file.path(output.directory, 'out_LosAngeles_2020022419_hrrr_OCO-3',
+                        'include', prior.emissions)
+  library(ncdf4)
+  nc <- nc_open(tmp.file)
+  tmp.time <- ncvar_get(nc, 'time')
+  timestep.list <- as.POSIXlt(tmp.time,
+                              origin = '1970-01-01',
+                              tz = 'UTC')
+  nc_close(nc)
+  out.dirs <- file.path(output.directory, basename(footprint.dirs))
+  
+  api.key <- names(read.csv('insert_ggAPI.csv'))
+}
+
 BayesianInversion <- function(site, workdir, api.key, included.errors, footprint.dirs, odiac.path,
                               vulcan.path, is.annual, vulcan.sector.path, edgar.path, edgar.downscaling,
                               carma.path, smurf.path, use.year, output.directory, emissions.category,
