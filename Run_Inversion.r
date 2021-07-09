@@ -90,6 +90,7 @@ included.errors <- 'ext/included.errors.csv'
 
 #set up file names for required NetCDF files
 prior.emissions <- 'prior_emiss.nc'
+truth.emissions <- 'truth_emiss.nc'
 background.emissions <- 'outer_emiss.nc'
 prior.uncertainty <- 'prior_uncert.nc'
 bio.emissions <- 'bio_flux.nc'
